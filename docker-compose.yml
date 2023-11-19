@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  final:
+    build:
+      context: .
+      target: finalNode
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - POSTGERS_HOST=db
+  db:
+    build:
+      context: db
+    container_name: db
+    ports:
+      - "3030:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=moscowwalk
+      - POSTGRES_USER=mw
+      - POSTGRES_PASSWORD=5727

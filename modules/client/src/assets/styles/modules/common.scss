@@ -1,0 +1,12 @@
+.load{
+  animation: load var(--load-time);
+}
+
+@keyframes load {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
